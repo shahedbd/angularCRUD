@@ -15,6 +15,8 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostsService } from './posts.service';
 import { EditpostsComponent } from './editposts/editposts.component';
+import { CreatepostsComponent } from './createposts/createposts.component';
+import { DeletepostsComponent } from './deleteposts/deleteposts.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { EditpostsComponent } from './editposts/editposts.component';
     GstEditComponent,
     UserinfoComponent,
     PostsComponent,
-    EditpostsComponent
+    EditpostsComponent,
+    CreatepostsComponent,
+    DeletepostsComponent
   ],
   imports: [
     BrowserModule,

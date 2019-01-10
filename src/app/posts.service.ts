@@ -13,6 +13,17 @@ export class PostsService {
     return this.http.get(`${this.url}`);
   }
 
+  addPosts(title, author) {
+    const obj = {
+      title: title,
+      author: author
+    };
+    console.log(obj);
+    this.http.post(`${this.url}`, obj)
+      .subscribe(res => console.log('Done'));
+  }
+
+
   updatePostsGet(id) {
     return this
       .http
@@ -29,4 +40,11 @@ export class PostsService {
       .put(`${this.url}/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
+  deletePosts(id) {
+    return this
+      .http
+      .delete(`${this.url}/${id}`)
+      .subscribe(res => console.log('Done'));
+  }
 }
+

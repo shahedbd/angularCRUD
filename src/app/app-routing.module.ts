@@ -5,7 +5,9 @@ import { GstEditComponent } from './gst-edit/gst-edit.component';
 import { GstGetComponent } from './gst-get/gst-get.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
 import { PostsComponent } from './posts/posts.component';
+import { CreatepostsComponent } from './createposts/createposts.component';
 import { EditpostsComponent } from './editposts/editposts.component';
+
 
 const routes: Routes = [
   {
@@ -27,6 +29,10 @@ const routes: Routes = [
   {
     path: 'posts',
     component: PostsComponent
+  },
+  {
+    path: 'posts/createPosts',
+    component: CreatepostsComponent
   },
   {
     path: 'posts/edit/:id',
