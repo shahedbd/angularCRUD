@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from '../posts.service';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-createposts',
@@ -9,7 +11,9 @@ import { PostsService } from '../posts.service';
 })
 export class CreatepostsComponent implements OnInit {
   angForm: FormGroup;
-  constructor(private fb: FormBuilder, private ps: PostsService) {
+  constructor(private fb: FormBuilder, private ps: PostsService,
+    private router: Router,
+    private route: ActivatedRoute) {
     this.createForm();
   }
 
@@ -19,10 +23,11 @@ export class CreatepostsComponent implements OnInit {
       author: ['', Validators.required]
     });
   }
-  addPosts(title, author) {
+  async addPosts(title, author) {
     this.ps.addPosts(title, author);
+    await delay(1000);
+    this.router.navigate(['posts']);
   }
-
   ngOnInit() {
   }
 }

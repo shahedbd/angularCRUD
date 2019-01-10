@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Posts from '../Posts';
+import { delay } from 'q';
 
 
 @Component({
@@ -25,12 +26,13 @@ export class PostsComponent implements OnInit {
       .subscribe((data: Posts[]) => {
         this.posts = data;
         console.log(data);
-    });
+      });
   }
 
-  deletePosts(title, author) {
-    this.route.params.subscribe(params => {
-      this.ps.deletePosts(params['id']);
+  deletePosts(id) {
+    this.route.params.subscribe(async params => {
+      this.ps.deletePosts(id);
+      await delay(1000);
       this.router.navigate(['posts']);
     });
   }

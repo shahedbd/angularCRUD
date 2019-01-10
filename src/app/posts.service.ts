@@ -44,7 +44,7 @@ export class PostsService {
     return this
       .http
       .delete(`${this.url}/${id}`)
-      .subscribe(res => console.log('Done'));
+      .subscribe(res => console.log('Deleted. ID: ' + id));
   }
 }
 
