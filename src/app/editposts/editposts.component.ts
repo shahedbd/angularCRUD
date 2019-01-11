@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PostsService } from '../posts.service';
+import { delay } from 'q';
 
 
 @Component({
@@ -38,8 +39,9 @@ export class EditpostsComponent implements OnInit {
   }
 
   updatePosts(title, author) {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe(async params => {
       this.ps.updatePosts(title, author, params['id']);
+      await delay(1000);
       this.router.navigate(['posts']);
     });
   }

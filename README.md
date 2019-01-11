@@ -1,4 +1,7 @@
-# Angular7crud
+# Angular 7 CRUD
+
+### API Preparation
+* Use  jsonServer: https://github.com/shahedbd/jsonServer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 

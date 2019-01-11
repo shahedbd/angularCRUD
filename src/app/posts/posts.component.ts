@@ -3,6 +3,7 @@ import { PostsService } from '../posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Posts from '../Posts';
 import { delay } from 'q';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -32,8 +33,9 @@ export class PostsComponent implements OnInit {
   deletePosts(id) {
     this.route.params.subscribe(async params => {
       this.ps.deletePosts(id);
-      await delay(1000);
-      this.router.navigate(['posts']);
+      window.location.reload();
+      // await delay(1000);
     });
+    // this.router.navigate(['posts']);
   }
 }
